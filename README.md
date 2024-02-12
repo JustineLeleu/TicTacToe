@@ -3,9 +3,7 @@
 This is a Tic Tac Toe app made in Java for android. It contains a full game of Tic Tac Toe with a two players mode and a solo versus IA mode.
 ## Screenshots
 
-<img src="readme_ressources/screen03.jpg" width="150">
-<img src="readme_ressources/screen01.jpg" width="150">
-<img src="readme_ressources/screen02.jpg" width="150">
+<img src="readme_ressources/screen03.jpg" width="150"> <img src="readme_ressources/screen01.jpg" width="150"> <img src="readme_ressources/screen02.jpg" width="150">
 
 
 ## Badges
