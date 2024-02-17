@@ -85,12 +85,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 playerName = "IA";
                 playerText.setText(playerName);
                 orderLayout.setVisibility(View.INVISIBLE);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startTurn();
-                    }
-                }, delay);
+                handler.postDelayed(this::startTurn, delay);
             });
         }
         else {
@@ -155,15 +150,12 @@ public class GameActivity extends Activity implements View.OnClickListener {
         tiles.forEach(imageButton -> imageButton.setClickable(false));
 
         // add a delay between turns
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                player = (player == 1) ? 2 : 1;
-                if(!solo) playerName = (player == 1) ? "Player 1" : "Player 2";
-                else playerName = (player == humanPlayer) ? "You" : "IA";
-                playerText.setText(playerName);
-                startTurn();
-            }
+        handler.postDelayed(() -> {
+            player = (player == 1) ? 2 : 1;
+            if(!solo) playerName = (player == 1) ? "Player 1" : "Player 2";
+            else playerName = (player == humanPlayer) ? "You" : "IA";
+            playerText.setText(playerName);
+            startTurn();
         }, delay);
     }
 
@@ -263,13 +255,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         Button resetButton = findViewById(R.id.resetButton);
         Button quitButton = findViewById(R.id.quitButton);
 
-        resetButton.setOnClickListener(v -> {
-            recreate();
-        });
+        resetButton.setOnClickListener(v -> recreate());
 
-        quitButton.setOnClickListener(v -> {
-            startActivity(new Intent(GameActivity.this, MainActivity.class));
-        });
+        quitButton.setOnClickListener(v -> startActivity(new Intent(GameActivity.this, MainActivity.class)));
 
         tiles.forEach(imageButton-> imageButton.setClickable(false));
     }
