@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             hard.setOnClickListener(view ->
                     startActivity(new Intent(MainActivity.this, GameActivity.class)
                             .putExtra("solo", true)
-                            .putExtra("difficulty", 4))
+                            .putExtra("difficulty", 9))
             );
         });
 
